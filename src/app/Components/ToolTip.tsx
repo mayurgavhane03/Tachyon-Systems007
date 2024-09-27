@@ -1,6 +1,5 @@
 import React from "react";
-import { NodeDetails } from "./Data/jsondata1";
-
+import { NodeDetails } from "./types/type";
 
 interface ToolTipProps {
   details: NodeDetails;

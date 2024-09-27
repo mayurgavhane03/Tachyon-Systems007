@@ -650,7 +650,7 @@ export const customeData3 = [
       },
       {
         type: "user ",
-        name: "Mayur",
+        name: "Custom",
         details: {
           type: "NOSQL",
           Provider: "AWS",
