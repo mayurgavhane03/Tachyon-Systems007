@@ -7,7 +7,7 @@ import { NodeData, Position } from "./types/type";
 const getNodeStyle = (NodeType: string | undefined) => {
   console.log(NodeType);
   if (NodeType === "Square") {
-    return "w-24 h-24";
+    return " w-24 h-24";
   } else {
     return "rounded-full w-28 h-28";
   }

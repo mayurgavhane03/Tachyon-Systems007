@@ -118,7 +118,7 @@ const FlexibleGraph: React.FC<{ data: GraphData }> = ({ data }) => {
         {data.title}
       </h1>
       <div
-        className={`relative -ml-64    ${getDynamicMarginTop(edges)} `}
+        className={`relative -ml-68    ${getDynamicMarginTop(edges)} `}
         style={{
           //   marginTop: `-${Math.min(Math.max(nodes.length * 1, 2), )}px`,
           width: `${Math.max(nodes.length, 1100)}px`,
