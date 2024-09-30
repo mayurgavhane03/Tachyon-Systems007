@@ -1,7 +1,7 @@
 "use client"    
 import React, { useState } from "react";
 import FlexibleGraph from "./FlexibleGraph";
-import { customeData2, customeData3, customJson } from "./Data/customeData";
+import { customeData2, customeData3, customeData4, customeData5, customeData6, customeData7, customJson } from "./Data/customeData";
 import { jsondata1 } from "./Data/jsondata1";
 import { jsondata2 } from "./Data/jsondata2";
 import ZoomButtons from "./ZoomButtons";
@@ -34,7 +34,15 @@ const DiagramRender = () => {
             setSelectedData(customeData2)
         }else if (option=== "Custome-data-3"){
             setSelectedData(customeData3)
-        }
+        }else if (option=== "Custome-data-4"){
+          setSelectedData(customeData4)
+        }else if (option=== "Custome-data-5"){
+        setSelectedData(customeData5)
+        }else if (option=== "Custome-data-6"){
+          setSelectedData(customeData6)
+          }else if (option=== "Custome-data-7"){
+            setSelectedData(customeData7)
+            }
       };
   return (
     <div>

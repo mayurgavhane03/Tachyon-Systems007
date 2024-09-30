@@ -1,16 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import ToolTip from "./ToolTip";
-import { Edge, GraphData, NodeData } from "./types/type";
+import { Edge, GraphData, NodeData, Position } from "./types/type";
 import { Node } from "./Node";
 import { CustomArrow } from "./CustomArrow";
+import { isEdgeOverlappingNodes } from "./Paths/isOverlap";
+import CurveNonOverlappingArrows from "./CurveNonOverlapingArrows";
 
  
 const FlexibleGraph: React.FC<{ data: GraphData }> = ({ data }) => {
   const [nodes, setNodes] = useState<NodeData[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
   const [selectedNode, setSelectedNode] = useState<NodeData | null>(null);
-  console.log(edges.length);
+ 
   useEffect(() => {
     // Process the nodes and edges from the graph data
     const processedNodes: NodeData[] = [];
@@ -104,8 +106,8 @@ const FlexibleGraph: React.FC<{ data: GraphData }> = ({ data }) => {
   };
   const getDynamicMarginTop = (edges: any) => {
     const nodeCount = edges.length;
-    console.log(nodeCount);
-    if (nodeCount >= 20) return "-mt-48";
+
+    if (nodeCount >= 20) return "-mt-44";
     if (nodeCount > 10) return "-mt-16";
     if (nodeCount > 3) return " mt-14  ";
     // if (nodeCount > 10) return '-mt-18';
@@ -121,7 +123,7 @@ const FlexibleGraph: React.FC<{ data: GraphData }> = ({ data }) => {
         className={`relative -ml-68    ${getDynamicMarginTop(edges)} `}
         style={{
           //   marginTop: `-${Math.min(Math.max(nodes.length * 1, 2), )}px`,
-          width: `${Math.max(nodes.length, 1100)}px`,
+          width: `${Math.max(nodes.length, 1200+100)}px`,
           height: `${
             Math.max(...nodes.map((n) => n.position?.y || 0)) + 200
           }px`,
@@ -137,13 +139,22 @@ const FlexibleGraph: React.FC<{ data: GraphData }> = ({ data }) => {
             onClick={handleNodeClick}
           />
         ))}
-        {edges.map((edge, index) => (
+      {edges.map((edge: any, index: any) => {
+        const isOverlapped = isEdgeOverlappingNodes(edge , nodes);
+        return isOverlapped ? (
+          <CurveNonOverlappingArrows
+            key={`edge-${index}`}
+            start={edge.source.position!}
+            end={edge.target.position!}
+            nodes={nodes}
+          />
+        ) : (
           <CustomArrow
             key={`edge-${index}`}
             start={edge.source.position!}
             end={edge.target.position!}
           />
-        ))}
+        )})}
         {selectedNode && selectedNode.position && (
           <div
             style={{

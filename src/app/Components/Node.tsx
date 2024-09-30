@@ -5,7 +5,7 @@ import { NodeData, Position } from "./types/type";
 
 
 const getNodeStyle = (NodeType: string | undefined) => {
-  console.log(NodeType);
+ 
   if (NodeType === "Square") {
     return " w-24 h-24";
   } else {
@@ -18,7 +18,6 @@ export const Node: React.FC<{
   position: Position;
   onClick: (data: NodeData) => void;
 }> = ({ data, position, onClick }) => {
-  console.log(data);
   return (
     <div
       className={`absolute   flex items-center  justify-center cursor-pointer`}

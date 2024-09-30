@@ -17,7 +17,7 @@ const DataOptions: FC<DataOptionsProps> = ({ onDataChange }) => {
   };
 
   return (
-    <div className="absolute top-[400px] right-10 items-start p-4 border border-blue-500 rounded-md">
+    <div className="absolute top-[300px] right-8 items-start p-4 border border-blue-500 rounded-md">
       <label className="flex items-center mb-2">
         <input
           type="radio"
@@ -72,6 +72,52 @@ const DataOptions: FC<DataOptionsProps> = ({ onDataChange }) => {
           className="form-radio text-blue-600 mr-2"
         />
         Custome-data-3
+      </label>
+      <label className="flex items-center mb-2">
+        <input
+          type="radio"
+          name="dataOption"
+          value="Custome-data-4"
+          checked={selectedOption === "Custome-data-4"}
+          onChange={handleChange}
+          className="form-radio text-blue-600 mr-2"
+        />
+        Custome-data-4
+      </label>
+      <label className="flex items-center mb-2">
+        <input
+          type="radio"
+          name="dataOption"
+          value="Custome-data-5"
+          checked={selectedOption === "Custome-data-5"}
+          onChange={handleChange}
+          className="form-radio text-blue-600 mr-2"
+        />
+        Custome-data-5
+      </label>
+      <label className="flex items-center mb-2">
+        <input
+          type="radio"
+          name="dataOption"
+          value="Custome-data-6"
+          checked={selectedOption === "Custome-data-6"}
+          onChange={handleChange}
+          className="form-radio text-blue-600 mr-2"
+        />
+        Custome-data-6
+      </label>
+
+
+      <label className="flex items-center mb-2">
+        <input
+          type="radio"
+          name="dataOption"
+          value="Custome-data-7"
+          checked={selectedOption === "Custome-data-7"}
+          onChange={handleChange}
+          className="form-radio text-blue-600 mr-2"
+        />
+        Custome-data-7
       </label>
       <button
         className="bg-blue-200 text-blue-900 font-semibold py-2 px-4 rounded hover:bg-blue-300"
